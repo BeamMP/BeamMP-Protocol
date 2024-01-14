@@ -5,10 +5,19 @@ project(BeamMP-Protocol)
 set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES 
+    include/Identification.h
+    include/ImplementationInfo.h
     include/State.h
     include/Transport.h
     include/Util.h
-    include/Identification.h
+    include/Version.h
+    include/ClientInfo.h
+    include/ServerInfo.h
+    src/ClientInfo.cpp
+    src/Version.cpp
+    src/ServerInfo.cpp
+    src/Identification.cpp
+    src/ImplementationInfo.cpp
     src/Identification.cpp
     src/Transport.cpp)
 
