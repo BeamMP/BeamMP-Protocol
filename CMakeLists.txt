@@ -13,13 +13,17 @@ set(SOURCES
     include/Version.h
     include/ClientInfo.h
     include/ServerInfo.h
+    include/ModRequest.h
+    src/ModRequest.cpp
     src/ClientInfo.cpp
     src/Version.cpp
     src/ServerInfo.cpp
     src/Identification.cpp
     src/ImplementationInfo.cpp
     src/Identification.cpp
-    src/Transport.cpp)
+    src/Transport.cpp
+    include/Hash.h
+    src/Hash.cpp)
 
 add_library(protocol STATIC
     ${SOURCES})
