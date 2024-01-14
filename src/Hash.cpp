@@ -64,7 +64,6 @@ TEST_CASE("Hash serialization") {
         std::vector<uint8_t> vec(100);
         CHECK_NOTHROW(original.serialize_to(vec));
         bmp::Hash hash;
-        std::cout << std::string(vec.begin(), vec.end()) << std::endl;
         CHECK_NOTHROW(hash.deserialize_from(vec));
         CHECK_EQ(hash, original);
     }
