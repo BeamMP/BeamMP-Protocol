@@ -4,8 +4,7 @@ project(BeamMP-Protocol)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(SOURCES 
-    include/Identification.h
+set(SOURCES
     include/ImplementationInfo.h
     include/State.h
     include/Transport.h
@@ -18,12 +17,12 @@ set(SOURCES
     src/ClientInfo.cpp
     src/Version.cpp
     src/ServerInfo.cpp
-    src/Identification.cpp
     src/ImplementationInfo.cpp
-    src/Identification.cpp
     src/Transport.cpp
     include/Hash.h
-    src/Hash.cpp)
+    src/Hash.cpp
+    src/ModResponse.cpp
+    include/ModResponse.h)
 
 add_library(protocol STATIC
     ${SOURCES})

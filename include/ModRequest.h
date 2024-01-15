@@ -3,7 +3,6 @@
 #include "Hash.h"
 #include <cstdint>
 #include <span>
-#include <string>
 
 namespace bmp {
 
