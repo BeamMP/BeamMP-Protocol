@@ -47,7 +47,13 @@ enum Purpose : uint16_t {
     PlayerPingUpdate = 0x0903,
     Notification = 0x0a01,
     Kicked = 0x0b01,
-
+    // Other
+    StateChangeIdentification = 0xaa01,
+    StateChangeAuthentication = 0xaa02,
+    StateChangeModDownload = 0xaa03,
+    StateChangeSessionSetup = 0xaa04,
+    StateChangePlaying = 0xaa05,
+    StateChangeLeaving = 0xaa06,
 };
 
 enum Flags : uint8_t {
