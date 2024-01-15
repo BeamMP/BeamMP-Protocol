@@ -6,6 +6,7 @@
 namespace bmp {
 
 enum Purpose : uint16_t {
+    Invalid = 0,
     // Identification
     ProtocolVersion = 0x0001,
     ProtocolVersionOk = 0x0002,
@@ -57,15 +58,18 @@ enum Purpose : uint16_t {
 };
 
 enum Flags : uint8_t {
+    None = 0,
     ZstdCompressed = 1 << 0,
 };
 
 /// Represents a header of a packet.
 struct Header {
-    Purpose purpose;
-    Flags flags;
-    uint8_t rsv;
-    uint32_t size;
+    static constexpr size_t SERIALIZED_SIZE = 8;
+
+    Purpose purpose{};
+    Flags flags{};
+    uint8_t rsv{};
+    uint32_t size{};
 
     size_t deserialize_from(std::span<uint8_t> span);
     size_t serialize_to(std::span<uint8_t> span);
