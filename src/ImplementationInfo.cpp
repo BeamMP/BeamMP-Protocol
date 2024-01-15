@@ -18,7 +18,7 @@ size_t bmp::ImplementationInfo::serialize_to(std::span<uint8_t> span) {
     return offset + value.size();
 }
 
-size_t bmp::ImplementationInfo::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::ImplementationInfo::deserialize_from(std::span<const uint8_t> span) {
     size_t offset = 0;
     uint8_t size = 0;
     offset += deserialize(size, span);

@@ -21,7 +21,7 @@ size_t bmp::hash_size(const bmp::HashAlgorithm& algo) {
     }
 }
 
-size_t bmp::Hash::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::Hash::deserialize_from(std::span<const uint8_t> span) {
     auto loc = std::find(span.begin(), span.end(), ':');
     if (loc == span.end()) {
         throw std::invalid_argument("Hash doesn't contain ':'");

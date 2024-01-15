@@ -3,7 +3,7 @@
 #include <doctest/doctest.h>
 #include <vector>
 
-size_t bmp::ServerInfo::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::ServerInfo::deserialize_from(std::span<const uint8_t> span) {
     size_t offset = 0;
     offset += program_version.deserialize_from(span.subspan(offset));
     offset += implementation.deserialize_from(span.subspan(offset));

@@ -22,7 +22,9 @@ set(SOURCES
     include/Hash.h
     src/Hash.cpp
     src/ModResponse.cpp
-    include/ModResponse.h)
+    include/ModResponse.h
+    include/ProtocolVersion.h
+    src/ProtocolVersion.cpp)
 
 add_library(protocol STATIC
     ${SOURCES})

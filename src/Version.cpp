@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <vector>
 
-size_t bmp::Version::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::Version::deserialize_from(std::span<const uint8_t> span) {
     size_t offset = 0;
     offset += deserialize(major, span.subspan(offset));
     offset += deserialize(minor, span.subspan(offset));

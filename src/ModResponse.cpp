@@ -1,6 +1,6 @@
 #include "ModResponse.h"
 
-size_t bmp::ModResponse::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::ModResponse::deserialize_from(std::span<const uint8_t> span) {
     auto offset = hash.deserialize_from(span);
     return offset;
 }

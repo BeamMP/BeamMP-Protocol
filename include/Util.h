@@ -29,12 +29,12 @@ constexpr T byteswap(T value) {
 /// Deserializes the given datatype from a byte span.
 /// Throws if there is not enough space to read the type.
 template <typename T>
-constexpr size_t deserialize(T& value, std::span<uint8_t> span);
+constexpr size_t deserialize(T& value, std::span<const uint8_t> span);
 
 /// Deserializes an integer from a byte span.
 /// Throws if there is not enough space to read the type.
 template <std::integral T>
-constexpr size_t deserialize(T& value, std::span<uint8_t> span) {
+constexpr size_t deserialize(T& value, std::span<const uint8_t> span) {
     if (span.size_bytes() < sizeof(T)) {
         throw std::invalid_argument(std::string("span too small to deserialize type of size: ") + std::to_string(sizeof(T)));
     }

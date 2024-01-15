@@ -6,7 +6,7 @@
 
 #include "Util.h"
 
-size_t bmp::Header::deserialize_from(std::span<uint8_t> span) {
+size_t bmp::Header::deserialize_from(std::span<const uint8_t> span) {
     size_t offset = 0;
     uint16_t raw_purpose;
     offset += deserialize(raw_purpose, span.subspan(offset));
