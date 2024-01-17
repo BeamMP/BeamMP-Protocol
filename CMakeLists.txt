@@ -5,28 +5,30 @@ project(BeamMP-Protocol)
 set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES
+    include/ClientInfo.h
+    include/Compression.h
+    include/Hash.h
     include/ImplementationInfo.h
+    include/ModRequest.h
+    include/ModResponse.h
+    include/Packet.h
+    include/ProtocolVersion.h
+    include/ServerInfo.h
     include/State.h
     include/Transport.h
     include/Util.h
     include/Version.h
-    include/ClientInfo.h
-    include/ServerInfo.h
-    include/ModRequest.h
-    src/ModRequest.cpp
     src/ClientInfo.cpp
-    src/Version.cpp
-    src/ServerInfo.cpp
-    src/ImplementationInfo.cpp
-    src/Transport.cpp
-    include/Hash.h
-    src/Hash.cpp
-    src/ModResponse.cpp
-    include/ModResponse.h
-    include/ProtocolVersion.h
-    src/ProtocolVersion.cpp
     src/Compression.cpp
-    include/Compression.h
+    src/Hash.cpp
+    src/ImplementationInfo.cpp
+    src/ModRequest.cpp
+    src/ModResponse.cpp
+    src/Packet.cpp
+    src/ProtocolVersion.cpp
+    src/ServerInfo.cpp
+    src/Transport.cpp
+    src/Version.cpp
 )
 
 add_library(protocol STATIC
