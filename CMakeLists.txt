@@ -24,19 +24,25 @@ set(SOURCES
     src/ModResponse.cpp
     include/ModResponse.h
     include/ProtocolVersion.h
-    src/ProtocolVersion.cpp)
+    src/ProtocolVersion.cpp
+    src/Compression.cpp
+    include/Compression.h
+)
 
 add_library(protocol STATIC
     ${SOURCES})
 
+find_package(zstd REQUIRED)
+
+target_link_libraries(protocol zstd::libzstd_static)
 target_include_directories(protocol PUBLIC include)
 target_compile_options(protocol PRIVATE -DDOCTEST_CONFIG_DISABLE=1)
 
-if (BEAMMP_PROTOCOL_TESTS)
+if (NOT BEAMMP_NO_PROTOCOL_TESTS)
     find_package(doctest REQUIRED)
     add_executable(protocol-tests
         src/tests.cpp
         ${SOURCES})
     target_include_directories(protocol-tests PUBLIC include)
-    target_link_libraries(protocol-tests doctest::doctest)
+    target_link_libraries(protocol-tests doctest::doctest zstd::libzstd_static)
 endif()

@@ -18,6 +18,7 @@ enum Purpose : uint16_t {
     AuthOk = 0x0007,
     AuthFailed = 0x0008,
     PlayerRejected = 0x0009,
+    StartUDP = 0x0012,
     // ModDownload
     ModsInfo = 0x000a,
     ModRequest = 0x000b,
