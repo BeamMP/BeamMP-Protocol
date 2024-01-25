@@ -13,10 +13,9 @@ std::vector<uint8_t> bmp::Packet::get_readable_data() const {
 }
 
 bmp::Header bmp::Packet::finalize() {
-    // the user can force zstd compression on before setting data to force compression,
-    // otherwise the threshold is used.
-    if ((flags & bmp::Flags::ZstdCompressed) != 0
-        || raw_data.size() > bmp::COMPRESSION_THRESHOLD) {
+    // if the packet isn't already compressed, compress it!
+    if ((flags & bmp::Flags::ZstdCompressed) == 0
+        && raw_data.size() > bmp::COMPRESSION_THRESHOLD) {
         flags = bmp::Flags(flags | bmp::Flags::ZstdCompressed);
         raw_data = bmp::zstd_compress(raw_data);
     }

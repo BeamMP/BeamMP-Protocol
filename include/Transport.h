@@ -59,6 +59,28 @@ enum Purpose : uint16_t {
     StateChangeLeaving = 0xaa06,
 };
 
+/// Category is not specified explicitly in the spec, but the purpose
+/// numbers encode them. These can be extracted from a purpose via e.g.
+///     (purpose & 0xff00) >> 8
+enum class Category {
+    None = 0x00,
+    Vehicle = 0x01,
+    Input = 0x02,
+    Electrics = 0x03,
+    Nodes = 0x04,
+    Powertrain = 0x05,
+    Position = 0x06,
+    Chat = 0x07,
+    Event = 0x08,
+    Player = 0x09,
+    Notification = 0x0a,
+    Kicked = 0x0b,
+};
+
+constexpr Category category_of(bmp::Purpose purpose) {
+    return Category((purpose & 0xff00) >> 8);
+}
+
 enum Flags : uint8_t {
     None = 0,
     ZstdCompressed = 1 << 0,
@@ -68,10 +90,10 @@ enum Flags : uint8_t {
 struct Header {
     static constexpr size_t SERIALIZED_SIZE = 8;
 
-    Purpose purpose{};
-    Flags flags{};
-    uint8_t rsv{};
-    uint32_t size{};
+    Purpose purpose {};
+    Flags flags {};
+    uint8_t rsv {};
+    uint32_t size {};
 
     size_t deserialize_from(std::span<const uint8_t> span);
     size_t serialize_to(std::span<uint8_t> span);
