@@ -21,6 +21,7 @@ enum Purpose : uint16_t {
     StartUDP = 0x0012,
     // ModDownload
     ModsInfo = 0x000a,
+    MapInfo = 0x0013,
     ModRequest = 0x000b,
     ModResponse = 0x000c,
     ModRequestInvalid = 0x000d,
