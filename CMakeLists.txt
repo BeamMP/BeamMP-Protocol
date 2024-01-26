@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.18)
 
 project(BeamMP-Protocol)
 
+message(STATUS "MSVC -> forcing use of statically-linked runtime.")
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
 set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES

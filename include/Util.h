@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <span>
 #include <stdexcept>
+#include <string>
 
 namespace bmp {
 
