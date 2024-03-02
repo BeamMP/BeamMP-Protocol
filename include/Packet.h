@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "Transport.h"
@@ -7,8 +6,8 @@
 namespace bmp {
 
 struct Packet {
-    Purpose purpose;
-    Flags flags;
+    Purpose purpose {};
+    Flags flags {};
 
     /// Returns data with consideration to flags.
     std::vector<uint8_t> get_readable_data() const;
