@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES
     include/ClientInfo.h
+    include/ClientPacket.h
+    include/ClientState.h
+    include/ClientTransport.h
     include/Compression.h
     include/Hash.h
     include/ImplementationInfo.h
@@ -22,6 +25,8 @@ set(SOURCES
     include/Util.h
     include/Version.h
     src/ClientInfo.cpp
+    src/ClientPacket.cpp
+    src/ClientTransport.cpp
     src/Compression.cpp
     src/Hash.cpp
     src/ImplementationInfo.cpp
@@ -30,6 +35,7 @@ set(SOURCES
     src/Packet.cpp
     src/ProtocolVersion.cpp
     src/ServerInfo.cpp
+    src/tests.cpp
     src/Transport.cpp
     src/Version.cpp
 )

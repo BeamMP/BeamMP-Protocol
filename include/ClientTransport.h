@@ -7,7 +7,7 @@
 
 namespace bmp {
 
-enum ClientPurpose : uint16_t {
+enum class ClientPurpose : uint16_t {
     // ClientIdentification
     GameInfo = 0x0001,
     LauncherInfo = 0x0002,
@@ -56,7 +56,7 @@ enum ClientPurpose : uint16_t {
     StateChangePlaying = 0xaa08,
 };
 
-enum ClientFlags : uint8_t {
+enum class ClientFlags : uint8_t {
     None = 0,
     MsgPack = 1 << 0,
 };
