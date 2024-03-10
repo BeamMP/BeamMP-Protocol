@@ -53,7 +53,7 @@ enum class ClientPurpose : uint16_t {
     StateChangeServerAuthentication = 0xaa05,
     StateChangeServerModDownload = 0xaa06,
     StateChangeServerSessionSetup = 0xaa07,
-    StateChangePlaying = 0xaa08,
+    StateChangeServerPlaying = 0xaa08,
 };
 
 enum class ClientFlags : uint8_t {
